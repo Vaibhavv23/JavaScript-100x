@@ -19,11 +19,10 @@
   - `npm run test-countChar`
 */
 
-// Way 1
-const countCharacters = (word) => {
+const countCharacters = (statement) => {
   let result = {};
-  for (let i = 0; i < word.length; i++) {
-    let char = word.charAt(i);
+  for (let i = 0; i < statement.length; i++) {
+    let char = statement.charAt(i);
     if (result[char]) {
       result[char]++;
     } else {
@@ -32,7 +31,6 @@ const countCharacters = (word) => {
   }
   return result;
 };
-
 module.exports = countCharacters;
 
 // Way 2: Using reduce() with split()
