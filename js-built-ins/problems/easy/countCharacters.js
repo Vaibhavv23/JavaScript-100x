@@ -19,10 +19,11 @@
   - `npm run test-countChar`
 */
 
-const countCharacters = (statement) => {
+// Way 1
+const countCharacters = (word) => {
   let result = {};
-  for (let i = 0; i < statement.length; i++) {
-    let char = statement.charAt(i);
+  for (let i = 0; i < word.length; i++) {
+    let char = word.charAt(i);
     if (result[char]) {
       result[char]++;
     } else {
@@ -31,5 +32,41 @@ const countCharacters = (statement) => {
   }
   return result;
 };
+
 module.exports = countCharacters;
 
+
+// Way 2: Using reduce() with split()
+// Alternative functional approach
+/*
+const countCharacters = (word) => {
+  return word.split('').reduce((acc, char) => {
+    acc[char] = (acc[char] || 0) + 1;
+    return acc;
+  }, {});
+};
+*/
+
+// Way 3: Using a Map (modern approach)
+// Better performance for large strings
+/*
+const countCharacters = (word) => {
+  const charMap = new Map();
+  for (const char of word) {
+    charMap.set(char, (charMap.get(char) || 0) + 1);
+  }
+  return Object.fromEntries(charMap);
+};
+*/
+
+// Way 4: Using forEach loop (readable approach)
+// Good balance between readability and simplicity
+/*
+const countCharacters = (word) => {
+  const result = {};
+  [...word].forEach(char => {
+    result[char] = (result[char] || 0) + 1;
+  });
+  return result;
+};
+*/
