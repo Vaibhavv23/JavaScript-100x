@@ -35,7 +35,6 @@ const countCharacters = (word) => {
 
 module.exports = countCharacters;
 
-
 // Way 2: Using reduce() with split()
 // Alternative functional approach
 /*
